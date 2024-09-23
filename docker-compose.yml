@@ -1,0 +1,32 @@
+﻿version: '3.8'
+
+services:
+  eventswebapplication.api:
+    image: eventswebapplication.api
+    build:
+      context: ./Backend
+      dockerfile: EventsWebApplication.API/Dockerfile
+    environment:
+      - ConnectionStrings__EventsWebApplicationDbContext=server=db;database=modsen_db;user=user;password=password
+
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: modsen_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3308:3306"
+      
+  frontend:
+    build: ./Frontend/my-events
+    ports:
+      - "5173:5173"

@@ -35,12 +35,8 @@ namespace EventsWebApplication.API.Controllers
             {
                 return BadRequest("Invalid login or password.");
             }
-            Response.Cookies.Append("jwt", response.AccessToken, new CookieOptions
-            {
-                Secure = false,
-                SameSite = SameSiteMode.Strict,
-                Expires = DateTime.UtcNow.AddMinutes(30)
-            });
+
+            Response.Cookies.Append("jwt", response.AccessToken);
             Response.Cookies.Append("refresh_token", response.RefreshToken);
             return Ok(response);
         }
@@ -50,13 +46,7 @@ namespace EventsWebApplication.API.Controllers
         {
             var refreshToken = Request.Cookies["refresh_token"];
             var response = await _authService.RefreshTokenAsync(refreshToken);
-            Response.Cookies.Append("jwt", response.AccessToken, new CookieOptions
-            {
-                HttpOnly = true,
-                Secure = true, 
-                SameSite = SameSiteMode.Strict,
-                Expires = DateTime.UtcNow.AddMinutes(30)
-            });
+            Response.Cookies.Append("jwt", response.AccessToken);
             Response.Cookies.Append("refresh_token", response.RefreshToken);
             
             return Ok();

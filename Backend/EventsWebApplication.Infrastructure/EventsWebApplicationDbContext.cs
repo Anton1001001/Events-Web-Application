@@ -5,7 +5,7 @@ using Microsoft.Extensions.Options;
 
 namespace EventsWebApplication.Infrastructure;
 
-public class EventsWebApplicationDbContext : DbContext
+public sealed class EventsWebApplicationDbContext : DbContext
 {
     public DbSet<EventEntity> Events { get; set; }
     public DbSet<UserEntity> Users { get; set; }
@@ -15,6 +15,8 @@ public class EventsWebApplicationDbContext : DbContext
     public EventsWebApplicationDbContext(DbContextOptions<EventsWebApplicationDbContext> options) 
         : base(options)
     {
+        Database.Migrate();
+        
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

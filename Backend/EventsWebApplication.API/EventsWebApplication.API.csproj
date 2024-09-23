@@ -27,11 +27,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="wwwroot\images\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Content Remove="wwwroot\images\418eeaba-f887-4a4c-bdf9-95d65471204d.ico" />
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
     </ItemGroup>
 
 </Project>

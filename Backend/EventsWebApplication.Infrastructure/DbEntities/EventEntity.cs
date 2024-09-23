@@ -1,5 +1,4 @@
 ﻿namespace EventsWebApplication.Infrastructure.DbEntities;
-
 public class EventEntity
 {
     public Guid Id { get; init; }

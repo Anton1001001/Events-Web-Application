@@ -110,8 +110,7 @@ function EventDetail() {
 
   if (!event) return <Text>Loading...</Text>;
 
-  const formattedDateTime = new Date(event.dateTime).toLocaleDateString() + ' ' +
-    new Date(event.dateTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  const formattedDate = new Date(event.dateTime).toLocaleDateString();
 
   return (
     <Box p={4}>
@@ -123,7 +122,7 @@ function EventDetail() {
       />
       <Heading mb={4}>{event.name}</Heading>
       <Text mb={2}><strong>Description:</strong> {event.description}</Text>
-      <Text mb={2}><strong>Date & Time:</strong> {formattedDateTime}</Text>
+      <Text mb={2}><strong>Date:</strong> {formattedDate}</Text>
       <Text mb={2}><strong>Location:</strong> {event.location}</Text>
       <Text mb={2}><strong>Category:</strong> {event.category}</Text>
       <Flex mb={2} alignItems="center">

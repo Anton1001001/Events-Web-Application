@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Flex, Box, Text, Button, Spacer, ButtonGroup } from '@chakra-ui/react';
 import axios from 'axios';
 import { useUserRole } from '../hooks/useUserRole';
+import config from '../config';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ const Header = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:5152/auth/logout', {}, { withCredentials: true });
+      await axios.post(`${config.serverUrl}/auth/logout`, {}, { withCredentials: true });
       console.log('Logout successful');
       navigate('/auth');
     } catch (error) {
