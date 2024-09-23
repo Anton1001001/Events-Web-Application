@@ -3988,11 +3988,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Infrastructure\\EventsWebApplication.Infrastructure.csproj",
+      "projectUniqueName": "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Infrastructure\\EventsWebApplication.Infrastructure.csproj",
       "projectName": "EventsWebApplication.Infrastructure",
-      "projectPath": "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Infrastructure\\EventsWebApplication.Infrastructure.csproj",
+      "projectPath": "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Infrastructure\\EventsWebApplication.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Infrastructure\\obj\\",
+      "outputPath": "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -4007,8 +4007,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Application\\EventsWebApplication.Application.csproj": {
-              "projectPath": "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Application\\EventsWebApplication.Application.csproj"
+            "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Application\\EventsWebApplication.Application.csproj": {
+              "projectPath": "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Application\\EventsWebApplication.Application.csproj"
             }
           }
         }

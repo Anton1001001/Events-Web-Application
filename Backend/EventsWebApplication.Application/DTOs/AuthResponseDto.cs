@@ -8,6 +8,6 @@ public class AuthResponseDto
         RefreshToken = refreshToken;
     }
 
-    public string AccessToken { get; set; }
-    public string RefreshToken { get; set; }
+    public string AccessToken { get; set; } 
+    public string RefreshToken { get; set; } 
 }
