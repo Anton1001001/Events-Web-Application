@@ -1,12 +1,12 @@
 using System.Text;
 using EventsWebApplication.API.Middlewares;
+using EventsWebApplication.Application;
 using EventsWebApplication.Application.Helpers;
-using EventsWebApplication.Application.Repositories;
 using EventsWebApplication.Application.Services;
-using EventsWebApplication.Application.Services.Interfaces;
+using EventsWebApplication.Domain.Repositories;
 using EventsWebApplication.Infrastructure;
 using EventsWebApplication.Infrastructure.Authorization;
-using EventsWebApplication.Infrastructure.Mappings;
+using EventsWebApplication.Infrastructure.FileStorage;
 using EventsWebApplication.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -67,16 +67,18 @@ builder.Services.AddDbContext<EventsWebApplicationDbContext>(
     });
 
 
-
-builder.Services.AddScoped<IEventService, EventService>();
-builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IEventRepository, EventRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IImageService, ImageService>();
 builder.Services.AddScoped<IJwtProvider, JwtProvider>();
+builder.Services.AddScoped<ICookieProvider, CookieProvider>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddAutoMapper(typeof(MappingProfile));
+builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
+
+builder.Services.AddApplication();
+
+builder.Services.AddHttpContextAccessor();
+
 
 
 var app = builder.Build();

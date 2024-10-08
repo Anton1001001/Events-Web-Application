@@ -11,9 +11,11 @@
 
     <ItemGroup>
         <PackageReference Include="coverlet.collector" Version="6.0.0"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.5" />
+        <PackageReference Include="FluentAssertions" Version="7.0.0-alpha.4" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0"/>
+        <PackageReference Include="MockQueryable.EntityFrameworkCore" Version="7.0.4-beta" />
         <PackageReference Include="Moq" Version="4.20.72" />
+        <PackageReference Include="Moq.EntityFrameworkCore" Version="8.0.1.2" />
         <PackageReference Include="xunit" Version="2.5.3"/>
         <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3"/>
     </ItemGroup>
@@ -24,6 +26,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\EventsWebApplication.Application\EventsWebApplication.Application.csproj" />
+      <ProjectReference Include="..\EventsWebApplication.Domain\EventsWebApplication.Domain.csproj" />
       <ProjectReference Include="..\EventsWebApplication.Infrastructure\EventsWebApplication.Infrastructure.csproj" />
     </ItemGroup>
 

@@ -28,3 +28,19 @@ C:\Users\User\RiderProjects\EventsWebApplication\Backend\EventsWebApplication.Ap
 C:\Users\User\RiderProjects\EventsWebApplication\Backend\EventsWebApplication.Application\obj\Debug\net8.0\refint\EventsWebApplication.Application.dll
 C:\Users\User\RiderProjects\EventsWebApplication\Backend\EventsWebApplication.Application\obj\Debug\net8.0\EventsWebApplication.Application.pdb
 C:\Users\User\RiderProjects\EventsWebApplication\Backend\EventsWebApplication.Application\obj\Debug\net8.0\ref\EventsWebApplication.Application.dll
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Application\bin\Debug\net8.0\EventsWebApplication.Application.deps.json
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Application\bin\Debug\net8.0\EventsWebApplication.Application.dll
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Application\bin\Debug\net8.0\EventsWebApplication.Application.pdb
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Application\bin\Debug\net8.0\EventsWebApplication.Domain.dll
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Application\bin\Debug\net8.0\EventsWebApplication.Domain.pdb
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Application\obj\Debug\net8.0\EventsWebApplication.Application.csproj.AssemblyReference.cache
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Application\obj\Debug\net8.0\EventsWebApplication.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Application\obj\Debug\net8.0\EventsWebApplication.Application.AssemblyInfoInputs.cache
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Application\obj\Debug\net8.0\EventsWebApplication.Application.AssemblyInfo.cs
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Application\obj\Debug\net8.0\EventsWebApplication.Application.csproj.CoreCompileInputs.cache
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Application\obj\Debug\net8.0\EventsWebApplication.Application.sourcelink.json
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Application\obj\Debug\net8.0\EventsWe.1D868EEE.Up2Date
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Application\obj\Debug\net8.0\EventsWebApplication.Application.dll
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Application\obj\Debug\net8.0\refint\EventsWebApplication.Application.dll
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Application\obj\Debug\net8.0\EventsWebApplication.Application.pdb
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Application\obj\Debug\net8.0\ref\EventsWebApplication.Application.dll

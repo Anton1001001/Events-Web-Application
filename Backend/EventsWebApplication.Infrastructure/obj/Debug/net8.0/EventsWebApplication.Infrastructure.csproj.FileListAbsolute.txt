@@ -36,3 +36,23 @@ C:\Users\User\RiderProjects\EventsWebApplication\Backend\EventsWebApplication.In
 C:\Users\User\RiderProjects\EventsWebApplication\Backend\EventsWebApplication.Infrastructure\obj\Debug\net8.0\EventsWebApplication.Infrastructure.pdb
 C:\Users\User\RiderProjects\EventsWebApplication\Backend\EventsWebApplication.Infrastructure\obj\Debug\net8.0\EventsWebApplication.Infrastructure.genruntimeconfig.cache
 C:\Users\User\RiderProjects\EventsWebApplication\Backend\EventsWebApplication.Infrastructure\obj\Debug\net8.0\ref\EventsWebApplication.Infrastructure.dll
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Infrastructure\bin\Debug\net8.0\EventsWebApplication.Infrastructure.deps.json
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Infrastructure\bin\Debug\net8.0\EventsWebApplication.Infrastructure.runtimeconfig.json
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Infrastructure\bin\Debug\net8.0\EventsWebApplication.Infrastructure.dll
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Infrastructure\bin\Debug\net8.0\EventsWebApplication.Infrastructure.pdb
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Infrastructure\bin\Debug\net8.0\EventsWebApplication.Application.dll
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Infrastructure\bin\Debug\net8.0\EventsWebApplication.Domain.dll
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Infrastructure\bin\Debug\net8.0\EventsWebApplication.Application.pdb
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Infrastructure\bin\Debug\net8.0\EventsWebApplication.Domain.pdb
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Infrastructure\obj\Debug\net8.0\EventsWebApplication.Infrastructure.csproj.AssemblyReference.cache
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Infrastructure\obj\Debug\net8.0\EventsWebApplication.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Infrastructure\obj\Debug\net8.0\EventsWebApplication.Infrastructure.AssemblyInfoInputs.cache
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Infrastructure\obj\Debug\net8.0\EventsWebApplication.Infrastructure.AssemblyInfo.cs
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Infrastructure\obj\Debug\net8.0\EventsWebApplication.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Infrastructure\obj\Debug\net8.0\EventsWebApplication.Infrastructure.sourcelink.json
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Infrastructure\obj\Debug\net8.0\EventsWe.73611D1E.Up2Date
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Infrastructure\obj\Debug\net8.0\EventsWebApplication.Infrastructure.dll
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Infrastructure\obj\Debug\net8.0\refint\EventsWebApplication.Infrastructure.dll
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Infrastructure\obj\Debug\net8.0\EventsWebApplication.Infrastructure.pdb
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Infrastructure\obj\Debug\net8.0\EventsWebApplication.Infrastructure.genruntimeconfig.cache
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Infrastructure\obj\Debug\net8.0\ref\EventsWebApplication.Infrastructure.dll

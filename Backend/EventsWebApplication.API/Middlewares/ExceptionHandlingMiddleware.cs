@@ -1,9 +1,7 @@
-﻿using EventsWebApplication.Application.DTOs;
+﻿using System.Net;
+using System.Text.Json;
 
 namespace EventsWebApplication.API.Middlewares;
-
-using System.Net;
-using System.Text.Json;
 
 public class ExceptionHandlingMiddleware
 {
@@ -24,54 +22,22 @@ public class ExceptionHandlingMiddleware
         }
         catch (Exception ex)
         {
-            switch (ex)
-            {
-                case ApplicationException e:
-                    await HandleExceptionAsync(context, e.Message, HttpStatusCode.BadRequest, "Bad Request");
-                    break;
-                case KeyNotFoundException e:
-                    await HandleExceptionAsync(context, e.Message, HttpStatusCode.NotFound, "Not Found");
-                    break;
-                case UnauthorizedAccessException e:
-                    await HandleExceptionAsync(context, e.Message, HttpStatusCode.Unauthorized, "Unauthorized");
-                    break;
-                case InvalidOperationException e:
-                    await HandleExceptionAsync(context, e.Message, HttpStatusCode.Conflict, "Conflict");
-                    break;
-                case ArgumentException e:
-                    await HandleExceptionAsync(context, e.Message, HttpStatusCode.BadRequest, "Bad Request");
-                    break;
-                case FormatException e:
-                    await HandleExceptionAsync(context, e.Message, HttpStatusCode.BadRequest, "Bad Request");
-                    break;
-                default:
-                    await HandleExceptionAsync(context, ex.Message, HttpStatusCode.InternalServerError, "Internal Server Error");
-                    break;
-            }
+            _logger.LogError(ex, "An error occurred.");
+            await HandleExceptionAsync(context, ex);
         }
     }
 
-    private Task HandleExceptionAsync(
-        HttpContext context,
-        string exceptionMessage,
-        HttpStatusCode httpStatusCode,
-        string message)
+    private Task HandleExceptionAsync(HttpContext context, Exception ex)
     {
-        _logger.LogError(exceptionMessage);
-        HttpResponse response = context.Response;
-        
-        response.ContentType = "application/json";
-        response.StatusCode = (int)httpStatusCode;
+        context.Response.ContentType = "application/json";
+        context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
-        ErrorDto errorDto = new ErrorDto()
+        var response = new
         {
-            Message = message,
-            StatusCode = (int)httpStatusCode
+            error = "Internal Server Error",
+            message = "An unexpected error occurred. Please try again later."
         };
-        
-        string result = JsonSerializer.Serialize(errorDto);
-        
-        return context.Response.WriteAsJsonAsync(result);
+
+        return context.Response.WriteAsJsonAsync(JsonSerializer.Serialize(response));
     }
 }
-

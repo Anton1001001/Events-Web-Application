@@ -1,14 +1,14 @@
-﻿using EventsWebApplication.Infrastructure.DbEntities;
+﻿using EventsWebApplication.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EventsWebApplication.Infrastructure.Configurations;
 
-public class EventConfiguration : IEntityTypeConfiguration<EventEntity>
+public class EventConfiguration : IEntityTypeConfiguration<Event>
 {
-    public void Configure(EntityTypeBuilder<EventEntity> builder)
+    public void Configure(EntityTypeBuilder<Event> builder)
     {
-        builder.HasKey(e => e.Id);
+        builder.HasKey(e => e.EventId);
         builder.Property(e => e.Name).IsRequired().HasMaxLength(100);
         builder.Property(e => e.Description).IsRequired().HasMaxLength(4000);
         builder.Property(e => e.DateTime).IsRequired();
@@ -16,27 +16,15 @@ public class EventConfiguration : IEntityTypeConfiguration<EventEntity>
         builder.Property(e => e.Category).IsRequired().HasMaxLength(150);
         builder.Property(e => e.MaxUsers).IsRequired();
         builder.Property(e => e.ImageUrl).IsRequired().HasMaxLength(500);
-        builder.HasMany<UserEntity>(p => p.Users)
-            .WithMany(e => e.Events)
-            .UsingEntity<EventUserEntity>(
-                j => j
-                    .HasOne<UserEntity>()
-                    .WithMany()
-                    .HasForeignKey(u => u.UserId),
-                j => j
-                    .HasOne<EventEntity>()
-                    .WithMany()
-                    .HasForeignKey(e => e.EventId),
-                j =>
-                {
-                    j.HasKey(k => new {k.UserId, k.EventId});
-                    j.Property(eu => eu.RegistrationDate).IsRequired().ValueGeneratedOnAdd(); 
-                }
-            );
 
-        builder.HasData(new EventEntity
+        builder
+            .HasMany(u => u.Users)
+            .WithMany(e => e.Events)
+            .UsingEntity<EventUser>();
+
+        builder.HasData(new Event
         {
-            Id = Guid.NewGuid(),
+            EventId = Guid.NewGuid(),
             Name = "Симфоническая панк-сказка «Король и Шут»",
             Category = "Концерты",
             DateTime = new DateTime(2024,11,2),
@@ -46,9 +34,9 @@ public class EventConfiguration : IEntityTypeConfiguration<EventEntity>
             MaxUsers = 1000
         });
         
-        builder.HasData(new EventEntity
+        builder.HasData(new Event
         {
-            Id = Guid.NewGuid(),
+            EventId = Guid.NewGuid(),
             Name = "Grand Opening Party",
             Category = "Концерты",
             DateTime = new DateTime(2024,09,27),
@@ -58,9 +46,9 @@ public class EventConfiguration : IEntityTypeConfiguration<EventEntity>
             MaxUsers = 500
         });
         
-        builder.HasData(new EventEntity
+        builder.HasData(new Event
         {
-            Id = Guid.NewGuid(),
+            EventId = Guid.NewGuid(),
             Name = "Выставка «Самые загадочные картины мира»",
             Category = "Выставки",
             DateTime = new DateTime(2024,09,25), 
@@ -70,9 +58,9 @@ public class EventConfiguration : IEntityTypeConfiguration<EventEntity>
             MaxUsers = 30
         });
         
-        builder.HasData(new EventEntity
+        builder.HasData(new Event
         {
-            Id = Guid.NewGuid(),
+            EventId = Guid.NewGuid(),
             Name = "Dasha Sova",
             Category = "Вечеринки",
             DateTime = new DateTime(2024,09,29), 
@@ -82,9 +70,9 @@ public class EventConfiguration : IEntityTypeConfiguration<EventEntity>
             MaxUsers = 900
         });
         
-        builder.HasData(new EventEntity
+        builder.HasData(new Event
         {
-            Id = Guid.NewGuid(),
+            EventId = Guid.NewGuid(),
             Name = "Астро разборы",
             Category = "Концерты",
             DateTime = new DateTime(2024,09,30), 
@@ -94,9 +82,9 @@ public class EventConfiguration : IEntityTypeConfiguration<EventEntity>
             MaxUsers = 500
         });
         
-        builder.HasData(new EventEntity
+        builder.HasData(new Event
         {
-            Id = Guid.NewGuid(),
+            EventId = Guid.NewGuid(),
             Name = "Belarus Retail & Real Estate Forum 2024",
             Category = "Форумы",
             DateTime = new DateTime(2024,9,26),
@@ -106,9 +94,9 @@ public class EventConfiguration : IEntityTypeConfiguration<EventEntity>
             MaxUsers = 240
         });
         
-        builder.HasData(new EventEntity
+        builder.HasData(new Event
         {
-            Id = Guid.NewGuid(),
+            EventId = Guid.NewGuid(),
             Name = "Crypto Bridge",
             Category = "Форумы",
             DateTime = new DateTime(2024,10,22),

@@ -1,9 +1,7 @@
-﻿using AutoMapper;
-using EventsWebApplication.Application.DTOs;
-using EventsWebApplication.Application.Repositories;
+﻿
 using EventsWebApplication.Domain.Entities;
 using EventsWebApplication.Domain.Enums;
-using EventsWebApplication.Infrastructure.DbEntities;
+using EventsWebApplication.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace EventsWebApplication.Infrastructure.Repositories;
@@ -11,52 +9,46 @@ namespace EventsWebApplication.Infrastructure.Repositories;
 public class UserRepository : IUserRepository
 {
     readonly EventsWebApplicationDbContext _context;
-    readonly IMapper _mapper;
 
-    public UserRepository(EventsWebApplicationDbContext context, IMapper mapper)
+    public UserRepository(EventsWebApplicationDbContext context)
     {
         _context = context;
-        _mapper = mapper;
     }
 
-    public async Task<Guid> AddAsync(User user)
+    public async Task<User> AddAsync(User user , CancellationToken cancellationToken = default)
     {
-        var userEntity = _mapper.Map<UserEntity>(user);
-        userEntity.Role = Role.User;
-        await _context.Users.AddAsync(userEntity);
-        return userEntity.Id;
-        
+        await _context.Users.AddAsync(user, cancellationToken);
+        return user;
+
     }
     
-    public async Task<User> GetByEmailAsync(string email)
+    public async Task<User> GetByEmailAsync(string email, CancellationToken cancellationToken = default)
     {
-        var userEntity = await _context.Users
+        var user = await _context.Users
             .AsNoTracking()
-            .FirstOrDefaultAsync(p => p.Email == email);
-        return _mapper.Map<User>(userEntity);
+            .FirstOrDefaultAsync(p => p.Email == email, cancellationToken);
+        return user;
     }
 
-    public async Task<User> GetByRefreshTokenAsync(string refreshToken)
+    public async Task<User> GetByRefreshTokenAsync(string refreshToken, CancellationToken cancellationToken = default)
     {
         var userEntity = await _context.Users
             .AsNoTracking()
             .Include(p => p.RefreshTokens)
-            .FirstOrDefaultAsync(p => p.RefreshTokens.Any(rt => rt.Token == refreshToken));
+            .FirstOrDefaultAsync(p => p.RefreshTokens.Any(rt => rt.Token == refreshToken), cancellationToken);
 
-        return _mapper.Map<User>(userEntity);
+        return userEntity;
     }
 
-    public async Task<bool> RegisterInEventAsync(Guid userId, Guid eventId)
+    public async Task RegisterForEventAsync(Guid userId, Guid eventId, CancellationToken cancellationToken = default)
     {
-        var exists = await _context.EventUsers
-            .AnyAsync(eu => eu.UserId == userId && eu.EventId == eventId);
-        
-        if (!exists)
-        {
-            _context.EventUsers.Add(new EventUserEntity { EventId = eventId, UserId = userId });
-        }
-
-        return exists;
+        await _context.EventUsers.AddAsync(
+            new EventUser
+            {
+                EventId = eventId, 
+                UserId = userId,
+                RegistrationDate = DateTime.Now
+            }, cancellationToken);
     }
 
     public async Task<bool> IsRegisteredForEventAsync(Guid userId, Guid eventId)
@@ -64,80 +56,63 @@ public class UserRepository : IUserRepository
         return await _context.EventUsers.AnyAsync(eu => eu.EventId == eventId && eu.UserId == userId);
     }
 
-    public async Task<User> GetUserByIdAsync(Guid id)
+    public async Task<User> GetByIdAsync(Guid userId, CancellationToken cancellationToken = default)
     {
-        var userEntity = await _context.Users
+        var user = await _context.Users
             .AsNoTracking()
-            .FirstOrDefaultAsync(u => u.Id == id);
-        var user = _mapper.Map<User>(userEntity);
+            .FirstOrDefaultAsync(u => u.UserId == userId, cancellationToken);
         return user;
     }
 
-    public async Task<ICollection<Event>> GetEventsAsync(Guid userId)
+    public IQueryable<Event> GetEvents(Guid userId)
     {
-        var userEntities = await _context.Users
-            .AsNoTracking()
-            .Include(u => u.Events)
-            .FirstOrDefaultAsync(u => u.Id == userId);
-        
-        var eventEntities = userEntities.Events;
-        var @events = _mapper.Map<ICollection<Event>>(eventEntities);
-        return @events;
+        return _context.EventUsers
+            .Where(eu => eu.UserId == userId)
+            .Select(eu => eu.Event)
+            .OrderBy(e => e.EventId);
+
     }
 
-    public async Task<Guid> CancelRegistrationForEventAsync(Guid userId, Guid eventId)
+    public async Task<bool> CancelRegistrationForEventAsync(Guid userId, Guid eventId, CancellationToken cancellationToken = default)
     {
-        
-        var registration = await _context.EventUsers
-            .FirstOrDefaultAsync(eu => eu.EventId == eventId && eu.UserId == userId);
-        
-        _context.EventUsers.Remove(registration);
+        var eventUser = await _context.EventUsers
+            .FirstOrDefaultAsync(eu => eu.EventId == eventId && eu.UserId == userId, cancellationToken);
 
-        return userId;
+        if (eventUser is null)
+        {
+            return false;
+        }
+        
+        _context.EventUsers.Remove(eventUser);
 
+        return true;
     }
     
-
-    public async Task AddRefreshTokenAsync(Guid userId, RefreshTokenDto refreshToken)
+    public async Task AddRefreshTokenAsync(Guid userId, RefreshToken refreshToken, CancellationToken cancellationToken = default)
     {
-        var userEntity = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
-        var refreshTokenEntity = _mapper.Map<RefreshTokenEntity>(refreshToken);
-        userEntity.RefreshTokens.Add(refreshTokenEntity);
+        var userEntity = await _context.Users.FirstOrDefaultAsync(u => u.UserId == userId, cancellationToken);
+        userEntity.RefreshTokens.Add(refreshToken);
     }
 
-    public async Task RemoveRefreshTokenAsync(Guid userId, string refreshToken)
+    public async Task RemoveRefreshTokenAsync(Guid userId, string refreshToken, CancellationToken cancellationToken = default)
     {
         var userEntity = await _context.Users
             .Include(u => u.RefreshTokens)
-            .FirstOrDefaultAsync(u => u.Id == userId);
-
-        if (userEntity == null)
-        {
-            throw new Exception("User not found");
-        }
+            .FirstOrDefaultAsync(u => u.UserId == userId, cancellationToken);
+            
 
         var tokenEntity = userEntity.RefreshTokens
             .FirstOrDefault(rt => rt.Token == refreshToken);
-
-        if (tokenEntity == null)
-        {
-            throw new Exception("Refresh token not found");
-        }
 
         userEntity.RefreshTokens.Remove(tokenEntity);
 
     }
 
-    public async Task RemoveExpiredRefreshTokensAsync(Guid userId)
+    public async Task RemoveExpiredRefreshTokensAsync(Guid userId, CancellationToken cancellationToken = default)
     {
         var userEntity = await _context.Users
             .Include(u => u.RefreshTokens)
-            .FirstOrDefaultAsync(u => u.Id == userId);
-
-        if (userEntity == null)
-        {
-            throw new Exception("User not found");
-        }
+            .FirstOrDefaultAsync(u => u.UserId == userId, cancellationToken);
         
         var expiredTokens = userEntity.RefreshTokens
             .Where(rt => rt.Expires <= DateTime.UtcNow)
@@ -149,10 +124,9 @@ public class UserRepository : IUserRepository
         }
     }
 
-    public async Task<Guid> UpdateAsync(User user)
+    public async Task<User> UpdateAsync(User user, CancellationToken cancellationToken = default)
     {
-        var userEntity = _mapper.Map<UserEntity>(user);
-        _context.Users.Update(userEntity);
-        return user.Id;
+        _context.Users.Update(user);
+        return await Task.FromResult(user);
     }
 }

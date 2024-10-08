@@ -1,10 +1,11 @@
-﻿using EventsWebApplication.Application.DTOs;
-using EventsWebApplication.Domain.Entities;
+﻿using EventsWebApplication.Domain.Entities;
 
 namespace EventsWebApplication.Application.Helpers;
 
 public interface IJwtProvider
 {
     string GenerateJwtToken(User user);
-    RefreshTokenDto GenerateRefreshToken();
+    string GetUserIdFromToken(string token);
+    bool VerifyPassword(string password, string passwordHash);
+    RefreshToken GenerateRefreshToken();
 }

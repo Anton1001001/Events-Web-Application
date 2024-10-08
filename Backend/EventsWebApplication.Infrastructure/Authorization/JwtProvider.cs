@@ -2,7 +2,6 @@
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using EventsWebApplication.Application.DTOs;
 using EventsWebApplication.Application.Helpers;
 using EventsWebApplication.Domain.Entities;
 using Microsoft.Extensions.Options;
@@ -26,7 +25,7 @@ public class JwtProvider : IJwtProvider
     {
         var claims = new[]
         {
-            new Claim(CustomClaims.UserId, user.Id.ToString()),
+            new Claim(CustomClaims.UserId, user.UserId.ToString()),
             new Claim(CustomClaims.Role, user.Role.ToString()),
         };
 
@@ -46,12 +45,30 @@ public class JwtProvider : IJwtProvider
 
         return tokenString;
     }
-
     
-
-    public RefreshTokenDto GenerateRefreshToken()
+    public string GetUserIdFromToken(string token)
     {
-        var refreshToken = new RefreshTokenDto
+        var handler = new JwtSecurityTokenHandler();
+
+        if (!handler.CanReadToken(token))
+        {
+            throw new SecurityTokenException("Invalid token");
+        }
+        
+        var jwtToken = handler.ReadJwtToken(token);
+        var userIdClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == CustomClaims.UserId);
+        return userIdClaim?.Value;
+    }
+
+    public bool VerifyPassword(string password, string passwordHash)
+    {
+        return BCrypt.Net.BCrypt.Verify(password, passwordHash);
+    }
+
+
+    public RefreshToken GenerateRefreshToken()
+    {
+        var refreshToken = new RefreshToken
         {
             Token = GetUniqueToken(),
             Expires = DateTime.UtcNow.AddDays(_jwtOptions.RefreshTokenTtl),

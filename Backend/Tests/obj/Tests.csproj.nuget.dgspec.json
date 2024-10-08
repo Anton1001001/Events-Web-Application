@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\Tests\\Tests.csproj": {}
+    "D:\\Modsen Internship\\Events-Web-Application\\Backend\\Tests\\Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Application\\EventsWebApplication.Application.csproj": {
+    "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Application\\EventsWebApplication.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Application\\EventsWebApplication.Application.csproj",
+        "projectUniqueName": "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Application\\EventsWebApplication.Application.csproj",
         "projectName": "EventsWebApplication.Application",
-        "projectPath": "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Application\\EventsWebApplication.Application.csproj",
+        "projectPath": "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Application\\EventsWebApplication.Application.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Application\\obj\\",
+        "outputPath": "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,8 +26,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Domain\\EventsWebApplication.Domain.csproj": {
-                "projectPath": "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Domain\\EventsWebApplication.Domain.csproj"
+              "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Domain\\EventsWebApplication.Domain.csproj": {
+                "projectPath": "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Domain\\EventsWebApplication.Domain.csproj"
               }
             }
           }
@@ -55,7 +55,19 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "FluentResults": {
+              "target": "Package",
+              "version": "[3.16.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.4.1, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.5, )"
             }
@@ -80,14 +92,14 @@
         }
       }
     },
-    "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Domain\\EventsWebApplication.Domain.csproj": {
+    "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Domain\\EventsWebApplication.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Domain\\EventsWebApplication.Domain.csproj",
+        "projectUniqueName": "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Domain\\EventsWebApplication.Domain.csproj",
         "projectName": "EventsWebApplication.Domain",
-        "projectPath": "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Domain\\EventsWebApplication.Domain.csproj",
+        "projectPath": "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Domain\\EventsWebApplication.Domain.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Domain\\obj\\",
+        "outputPath": "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -118,6 +130,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -138,14 +156,14 @@
         }
       }
     },
-    "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Infrastructure\\EventsWebApplication.Infrastructure.csproj": {
+    "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Infrastructure\\EventsWebApplication.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Infrastructure\\EventsWebApplication.Infrastructure.csproj",
+        "projectUniqueName": "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Infrastructure\\EventsWebApplication.Infrastructure.csproj",
         "projectName": "EventsWebApplication.Infrastructure",
-        "projectPath": "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Infrastructure\\EventsWebApplication.Infrastructure.csproj",
+        "projectPath": "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Infrastructure\\EventsWebApplication.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Infrastructure\\obj\\",
+        "outputPath": "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -160,8 +178,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Application\\EventsWebApplication.Application.csproj": {
-                "projectPath": "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Application\\EventsWebApplication.Application.csproj"
+              "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Application\\EventsWebApplication.Application.csproj": {
+                "projectPath": "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Application\\EventsWebApplication.Application.csproj"
               }
             }
           }
@@ -181,6 +199,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.5, )"
@@ -222,14 +244,14 @@
         }
       }
     },
-    "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\Tests\\Tests.csproj": {
+    "D:\\Modsen Internship\\Events-Web-Application\\Backend\\Tests\\Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\Tests\\Tests.csproj",
+        "projectUniqueName": "D:\\Modsen Internship\\Events-Web-Application\\Backend\\Tests\\Tests.csproj",
         "projectName": "Tests",
-        "projectPath": "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\Tests\\Tests.csproj",
+        "projectPath": "D:\\Modsen Internship\\Events-Web-Application\\Backend\\Tests\\Tests.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\Tests\\obj\\",
+        "outputPath": "D:\\Modsen Internship\\Events-Web-Application\\Backend\\Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -244,11 +266,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Application\\EventsWebApplication.Application.csproj": {
-                "projectPath": "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Application\\EventsWebApplication.Application.csproj"
+              "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Application\\EventsWebApplication.Application.csproj": {
+                "projectPath": "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Application\\EventsWebApplication.Application.csproj"
               },
-              "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Infrastructure\\EventsWebApplication.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\User\\RiderProjects\\EventsWebApplication\\Backend\\EventsWebApplication.Infrastructure\\EventsWebApplication.Infrastructure.csproj"
+              "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Domain\\EventsWebApplication.Domain.csproj": {
+                "projectPath": "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Domain\\EventsWebApplication.Domain.csproj"
+              },
+              "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Infrastructure\\EventsWebApplication.Infrastructure.csproj": {
+                "projectPath": "D:\\Modsen Internship\\Events-Web-Application\\Backend\\EventsWebApplication.Infrastructure\\EventsWebApplication.Infrastructure.csproj"
               }
             }
           }
@@ -268,17 +293,25 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore.InMemory": {
+            "FluentAssertions": {
               "target": "Package",
-              "version": "[8.0.5, )"
+              "version": "[7.0.0-alpha.4, )"
             },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.8.0, )"
             },
+            "MockQueryable.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.4-beta, )"
+            },
             "Moq": {
               "target": "Package",
               "version": "[4.20.72, )"
+            },
+            "Moq.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.1.2, )"
             },
             "coverlet.collector": {
               "target": "Package",

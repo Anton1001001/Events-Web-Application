@@ -19,9 +19,9 @@ namespace EventsWebApplication.Infrastructure.Migrations
                 .HasAnnotation("ProductVersion", "8.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("EventsWebApplication.Infrastructure.DbEntities.EventEntity", b =>
+            modelBuilder.Entity("EventsWebApplication.Domain.Entities.Event", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("EventId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
@@ -56,14 +56,14 @@ namespace EventsWebApplication.Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
-                    b.HasKey("Id");
+                    b.HasKey("EventId");
 
                     b.ToTable("Events");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("db37e9be-af89-4caf-ba43-2fc0a1f3f547"),
+                            EventId = new Guid("332cb0a6-28ff-4b9a-ac61-2bc158786daa"),
                             Category = "Концерты",
                             DateTime = new DateTime(2024, 11, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Впервые в Минске! Грандиозная премьера от легендарного Imperial Orchestra, Яндекс Афиши и Плюс Студии — Симфоническая панк-сказка «Король и Шут»!\n\nЕдинственное официальное шоу, которое уже увидело 70000 восторженных зрителей!\n\nПосещение трибун для детей с 6 до 16 лет — только в сопровождении взрослых. Посещение танцпола возможно от 16 лет.\n\nЛюбимые песни культовой группы превратятся в большое путешествие по сказочным мирам в сопровождении симфонического оркестра, хора и органа.\n\nНа многоуровневой сцене разместятся более ста виртуозных музыкантов Imperial Orchestra в костюмах персонажей из песен «Короля и Шута», а дирижировать сказочным оркестром будет сам Мёртвый Анархист. Симфоническую сказку оживляет атмосферный видеоряд а ведущим в фэнтези-мир станет трехмерная голова Шута из одноименного сериала!\n\nСвыше 250 квадратных метров Led-экранов, масштабное световое шоу, мощный живой звук, неповторимая атмосфера легендарных концертов группы и самый большой в истории хор - 15000 человек, а именно Вас, дорогие зрители!\n\nТанцуйте и подпевайте любимым песням на танцполе или слушайте и отдыхайте в ложе. Слияние панк-энергии и симфонических инструментов, мистическая атмосфера и новая мрачная история по мотивам творчества группы — в симфонической панк-сказке есть всё, как для старых фанатов группы, так и для тех, кто присоединился совсем недавно.\n\nЖдём всех, кто знает, почему не стоит оставаться в гостях у лесника, ужинать с конюхом и ходить в чужой сад по цветы — или просто очень любит панк.\n\nТрек-лист: «Камнем по голове», «Смельчак и ветер», «Мёртвый анархист», «Лесник», «Дурак и молния», «Охотник», «Проклятый старый дом», «Два вора и монета», «Внезапная голова», «Девушка и Граф», «Ели мясо мужики», «Ведьма и осёл», «Прыгну со скалы», «Помнят с горечью древляне», «Проказник скоморох», «Ром», «Джокер», «Исповедь вампира», «Воспоминания о былой любви», «Северный флот», «Мастер приглашает в гости», «Фокусник», «Танец злобного гения», «Медведь», «Марионетки», «Кукла колдуна», «Гимн шута», «Утренний рассвет».",
@@ -74,7 +74,7 @@ namespace EventsWebApplication.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a9def34d-f29c-4834-823c-c947cedac333"),
+                            EventId = new Guid("9caed245-09a8-48e6-9504-ddc1bcb4f1f1"),
                             Category = "Концерты",
                             DateTime = new DateTime(2024, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "27 september Astro.Club.Minsk Приглашает вас на официальное открытие.\nSpecial guest Кравц @kravzzz\n\nПогрузитесь в мир космической атмосферы клуба, а так же вечеринки, которой всем нам так не хватает.\nЯркие люди, брызги шампанского.\n\nGrand Opening Party\nSmart Casual\n\nБудем рады внести вас в список наших дорогих гостей.",
@@ -85,7 +85,7 @@ namespace EventsWebApplication.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("647a4dfe-18e2-4d7b-ba86-3eb1163d914d"),
+                            EventId = new Guid("79b57835-6153-4e28-9ee5-2e7bbff5c56d"),
                             Category = "Выставки",
                             DateTime = new DateTime(2024, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "На выставке «Самые загадочные картины мира» вы увидите более 80 невероятных сюжетов мировых художников — Сандро Боттичелли, Леонардо Да Винчи, Тициан Вечеллио, Иероним Босх, Питер Брейгель, Ханс Бальдунг, Караваджо, Франсиско Гойя, Фрида Кало, Билл Стоунхэй, Гюстав Моро, Винсент Ван Гог, Эдвард Мунк, Иван Крамской, которые обладают такой мощной силой, что буквально гипнотизируют зрителей. Их можно рассматривать часами, пытаясь разгадать смыслы, которые стремился донести художник.",
@@ -96,7 +96,7 @@ namespace EventsWebApplication.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("436427a2-2430-4be1-bc77-ad48dcb3f9b3"),
+                            EventId = new Guid("aba719b5-8751-4bd1-b90a-fe2d3ed09608"),
                             Category = "Вечеринки",
                             DateTime = new DateTime(2024, 9, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Dasha Sova. Минск.",
@@ -107,7 +107,7 @@ namespace EventsWebApplication.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("084bf991-dc7d-4420-a241-9f90a3491672"),
+                            EventId = new Guid("b4173517-54ed-472c-b9c3-5167e72c0c90"),
                             Category = "Концерты",
                             DateTime = new DateTime(2024, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Каждый вторник у тебя есть возможность стать участником комедийно-импровизационного шоу с астрологом!\n\nС тебя: дата, время, место рождения, волнующий вопрос (отношения, деньги, карьера и др.) и смелость выйти на сцену.\n\nС нас: шутки и советы от астролога.\n\nТебе точно понравится, ждём!\n\nДля Вашего комфорта просим приходить минимум за 20 минут до начала шоу (начало в 20-00), это позволит Вам комфортно расположиться за столиком, а так, же сделать заказ и пообщаться с нашими барменами.\n\nОбращаем Ваше внимание, что Вы бронируете места за столиком либо за барной стойкой.\n\nМеста за столиком рассчитаны на 4-х человек, поэтому просим Вас дружелюбно отнестись к возможной подсадке и гостям рядом с Вами. Надеемся на Ваше понимание и позитивное настроение.\n\nБронирование мест, ежедневно с 11-00 до 19-00.",
@@ -118,7 +118,7 @@ namespace EventsWebApplication.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("43677c87-abf5-4b95-aaba-c9f66ed166fc"),
+                            EventId = new Guid("ab2b0454-fd6d-44ea-a73d-b4d7a616e01b"),
                             Category = "Форумы",
                             DateTime = new DateTime(2024, 9, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "26 сентября в Минске пройдет Belarus Retail & Real Estate Forum 2024 с участием экспертов рынка коммерческой и жилой недвижимости, ритейла и маркетинга. Спикеры мероприятия расскажут об актуальных тенденциях и эффективных инструментах развития бизнеса в рамках единственной в стране отраслевой Премии Belarus Retail & Real Estate Awards 2024.\n\nФорум соберет представителей управляющих компаний, инвесторов, технологических компаний, консультантов, девелоперов, ритейлеров, специалистов в сферах торговой и офисной недвижимости, владельцов бизнес-центров и других специалистов из сферы торговли.\n\nКлючевыми темами для обсуждения на Belarus Retail & Real Estate Forum 2024 станут:\n\n– Потребительские тренды (результаты исследования компании МАСМИ);\n\n– Аналитика, динамика и перспективы развития рынка коммерческой недвижимости Беларуси;\n\n– Как включить в корпоративную культуру представителей поколения Z и снизить текучку;\n\n– Как правильно открывать торговые точки в разных локациях;\n\n– Систематизация и оцифровка бизнеса в ритейле;\n\n– Коллаборации локальных fashion-брендов с крупными компаниями;\n\n– Как вести эффективные переговоры в коммерческой недвижимости и ритейле, чтобы достигать своих целей;\n\n– Диджитализация деятельности застройщика и девелопера;\n\n– Как увеличить продажи в 3 раза с помощью визуальной концепции и мерчандайзинга и другие.\n\nВ качестве спикеров на форум приглашены больше десятка экспертов: руководитель проектов агентства социальных и маркетинговых исследований MASMI Belarus Анастасия Печко, генеральный директор ООО «Звук Бизнес» Сергей Майоров, СEO и сооснователь сети «Зеленая аптека Беларуси» и медицинских центров «Эксана» Ругия Кенгерли, партнер и исполнительный директор NAI Belarus Андрей Алёшкин, основательница фэшн-бренда UNO MAS UNO Татьяна Лавренова, основатель международной компании VMC Retail и специалист по фэшн-мерчендайзингу и проектированию магазинов Марина Полковникова, бизнес-консультант и основатель школы управления «Менеджетик» Александр Самойлов, аналитик консалтинговой компании «Коллиерз» Дмитрий Соловых, профориентатор и игропедагог Ирина Тузина, системный предприниматель и собственник брендов женской одежды EL VIENTO, PERRA, KISSONS Василий Ануфриев, начальник службы маркетинговых коммуникаций сети магазинов «5 Элемент» Наталья Хатьянова, учредитель OOO «RealtyProTechnology» Александр Николайчук и другие.",
@@ -129,7 +129,7 @@ namespace EventsWebApplication.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("865ff223-6de7-4a92-a3ed-81e5759f8b23"),
+                            EventId = new Guid("0e2990db-e87f-4b47-b188-8a2838d372bf"),
                             Category = "Форумы",
                             DateTime = new DateTime(2024, 10, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Crypto Bridge —  крупнейший в Беларуси международный форум по Blockchain, Banking & Finance, DeFi, Security, Dev, Ai & Metaverse.\n\nС 10:00 - 20:00 (регистрация начинается с 8:00)\n\nУчастники\n\nБолее 2000 участников из 20 стран (РБ, РФ, Казахстан, Узбекистан, Кыргызстан), 2 дня погружения в тему, более 80 ТОП-спикеров, стендовые зоны, открытые и закрытые сессии. \n\nКрупнейшие игроки индустрии, должностные лица, частные инвесторы, фонды, банки, представители инновационных стартапов и криптовалют, разработчики блокчейн-технологий, ключевые участники майнинг-сектора и многие другие.\nОнлайн-трансляция в Метавселенной: аудитория более 200 000 человек\n\nНетворкинг\n\nФорум предоставляет отличную площадку для установления бизнес-контактов, обмена идеями, партнерств и потенциальных инвестиций.\n\nТемы форума\n\n- Блокчейн технологии \n - Обработка данных\n - Финтех и банкинг \n - Искусственный интеллект \n - Информационная безопасность \n - Регулирование и правовые аспекты (в Республике Беларусь и за рубежом);\n - Аудит компаний и проектов \n - Развитие индустрии продуктовых стартапов\n\nДокладчики — хэдлайнеры отрасли, такие как: Владимир Смеркис (Директор криптобиржи Binance в России и СНГ), Василий Кулеш (Председатель блокчейн-ассоциации Беларуси)\n\nОрганизатор\n\nМероприятие организовано медийным порталом futureby.info при поддержке Блокчейн Ассоциации Республики Беларусь и Российской ассоциации криптовалют и блокчейна (РАКИБ).\nСледите за актуальной информацией в telegram-канале @future_by и канале Форума @cypto_bridge.",
@@ -140,7 +140,7 @@ namespace EventsWebApplication.Infrastructure.Migrations
                         });
                 });
 
-            modelBuilder.Entity("EventsWebApplication.Infrastructure.DbEntities.EventUserEntity", b =>
+            modelBuilder.Entity("EventsWebApplication.Domain.Entities.EventUser", b =>
                 {
                     b.Property<Guid>("UserId")
                         .HasColumnType("char(36)");
@@ -149,17 +149,16 @@ namespace EventsWebApplication.Infrastructure.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<DateTime>("RegistrationDate")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime(6)");
 
                     b.HasKey("UserId", "EventId");
 
                     b.HasIndex("EventId");
 
-                    b.ToTable("EventUsers");
+                    b.ToTable("EventUsers", (string)null);
                 });
 
-            modelBuilder.Entity("EventsWebApplication.Infrastructure.DbEntities.RefreshTokenEntity", b =>
+            modelBuilder.Entity("EventsWebApplication.Domain.Entities.RefreshToken", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -169,7 +168,6 @@ namespace EventsWebApplication.Infrastructure.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Token")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<Guid>("UserId")
@@ -179,12 +177,12 @@ namespace EventsWebApplication.Infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("RefreshTokenEntity");
+                    b.ToTable("RefreshToken");
                 });
 
-            modelBuilder.Entity("EventsWebApplication.Infrastructure.DbEntities.UserEntity", b =>
+            modelBuilder.Entity("EventsWebApplication.Domain.Entities.User", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
@@ -205,20 +203,19 @@ namespace EventsWebApplication.Infrastructure.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("PasswordHash")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int>("Role")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
                     b.ToTable("Users");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("632d7af4-8c37-4235-ae45-b0dbf7451014"),
+                            UserId = new Guid("632d7af4-8c37-4235-ae45-b0dbf7451014"),
                             Email = "admin@gmail.com",
                             FirstName = "",
                             LastName = "",
@@ -227,34 +224,45 @@ namespace EventsWebApplication.Infrastructure.Migrations
                         });
                 });
 
-            modelBuilder.Entity("EventsWebApplication.Infrastructure.DbEntities.EventUserEntity", b =>
+            modelBuilder.Entity("EventsWebApplication.Domain.Entities.EventUser", b =>
                 {
-                    b.HasOne("EventsWebApplication.Infrastructure.DbEntities.EventEntity", null)
-                        .WithMany()
+                    b.HasOne("EventsWebApplication.Domain.Entities.Event", "Event")
+                        .WithMany("EventUsers")
                         .HasForeignKey("EventId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EventsWebApplication.Infrastructure.DbEntities.UserEntity", null)
-                        .WithMany()
+                    b.HasOne("EventsWebApplication.Domain.Entities.User", "User")
+                        .WithMany("EventUsers")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Event");
+
+                    b.Navigation("User");
                 });
 
-            modelBuilder.Entity("EventsWebApplication.Infrastructure.DbEntities.RefreshTokenEntity", b =>
+            modelBuilder.Entity("EventsWebApplication.Domain.Entities.RefreshToken", b =>
                 {
-                    b.HasOne("EventsWebApplication.Infrastructure.DbEntities.UserEntity", "UserEntity")
+                    b.HasOne("EventsWebApplication.Domain.Entities.User", "User")
                         .WithMany("RefreshTokens")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("UserEntity");
+                    b.Navigation("User");
                 });
 
-            modelBuilder.Entity("EventsWebApplication.Infrastructure.DbEntities.UserEntity", b =>
+            modelBuilder.Entity("EventsWebApplication.Domain.Entities.Event", b =>
                 {
+                    b.Navigation("EventUsers");
+                });
+
+            modelBuilder.Entity("EventsWebApplication.Domain.Entities.User", b =>
+                {
+                    b.Navigation("EventUsers");
+
                     b.Navigation("RefreshTokens");
                 });
 #pragma warning restore 612, 618

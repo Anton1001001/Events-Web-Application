@@ -20,3 +20,16 @@ C:\Users\User\RiderProjects\EventsWebApplication\Backend\EventsWebApplication.Do
 C:\Users\User\RiderProjects\EventsWebApplication\Backend\EventsWebApplication.Domain\obj\Debug\net8.0\refint\EventsWebApplication.Domain.dll
 C:\Users\User\RiderProjects\EventsWebApplication\Backend\EventsWebApplication.Domain\obj\Debug\net8.0\EventsWebApplication.Domain.pdb
 C:\Users\User\RiderProjects\EventsWebApplication\Backend\EventsWebApplication.Domain\obj\Debug\net8.0\ref\EventsWebApplication.Domain.dll
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Domain\bin\Debug\net8.0\EventsWebApplication.Domain.deps.json
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Domain\bin\Debug\net8.0\EventsWebApplication.Domain.dll
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Domain\bin\Debug\net8.0\EventsWebApplication.Domain.pdb
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Domain\obj\Debug\net8.0\EventsWebApplication.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Domain\obj\Debug\net8.0\EventsWebApplication.Domain.AssemblyInfoInputs.cache
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Domain\obj\Debug\net8.0\EventsWebApplication.Domain.AssemblyInfo.cs
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Domain\obj\Debug\net8.0\EventsWebApplication.Domain.csproj.CoreCompileInputs.cache
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Domain\obj\Debug\net8.0\EventsWebApplication.Domain.sourcelink.json
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Domain\obj\Debug\net8.0\EventsWebApplication.Domain.dll
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Domain\obj\Debug\net8.0\refint\EventsWebApplication.Domain.dll
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Domain\obj\Debug\net8.0\EventsWebApplication.Domain.pdb
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Domain\obj\Debug\net8.0\ref\EventsWebApplication.Domain.dll
+D:\Modsen Internship\Events-Web-Application\Backend\EventsWebApplication.Domain\obj\Debug\net8.0\EventsWebApplication.Domain.csproj.AssemblyReference.cache
